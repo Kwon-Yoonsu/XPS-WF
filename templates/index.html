@@ -4,42 +4,36 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <link
       href="{{ url_for('static', filename='styles.css') }}"
       rel="stylesheet"
     />
-    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon" />
-    <title>Document</title>
+    
+    <title>XPS WF</title>
+    
     <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
+
   </head>
-  <body>
-    <div class="status"></div>
+  <body>    
     <div id="title-div">
-      <h1>XRD Grain Size Calculator Ver. 0.1</h1>
+      <h1>XPS Workfunction Calculator Ver. 0.1</h1>
       <form id="submit-form">
+        
         <label for="myBrowser">Choose a SN:</label>
         <input id="submit-input" list="sn-browsers" name="snBrowser" />
+
         <datalist id="sn-browsers">
           {% for SN in SN_List %}
           <option value="{{SN}}"></option>
           {% endfor %}
         </datalist>
-        <button id="submit-button" type="submit" role="button">Submit</button>
-        <button id="reset-button" role="button">Reset</button>
+
+        <button id="submit-button" type="submit" role="button">Submit</button>        
       </form>
     </div>
 
-    <datalist id="file-browsers"> </datalist>
-
-    <div id="plots-parent">
-      <div id="plots" style="width: 1100px; height: 2000px"></div>
-    </div>
-    <div id="modify-div">
-      <button id="modify-button" class="hidden" type="submit" role="button">
-        File Modify
-      </button>
-    </div>
-
+        
     <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>
